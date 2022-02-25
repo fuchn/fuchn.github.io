@@ -37,12 +37,12 @@
                     <li class="post" v-for="(item1,index) in objs.PostNodes">
                         <div id="postcontent">
                             <div class="flex1"><a href="">{{item1.PostContent}}</a> <span>{{item1.PostUpvote}}</span></div>
-                            <span>发帖用户:{{item1.UserID}}</span>
+                            <span>发帖者ID:{{item1.UserID}}</span>
                             <span>{{item1.PostDate}}</span>
                             <div >
                                 <ul v-show="classname">
                                     <li v-for="(item2,index) in item1.Comments"><div class="flex2">
-                                        <div>评论用户{{item2.UserID}}</div>
+                                        <div>评论者ID:{{item2.UserID}}</div>
                                         <div class="flex1">
                                             <span>{{item2.CommentContent}}</span>
                                             <div><span>{{item2.CommentUpvote}}</span>

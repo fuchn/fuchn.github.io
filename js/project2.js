@@ -72,6 +72,18 @@ new Vue({
         },
         fold(){
             this.classname=!this.classname
+        },
+    },
+    mounted(){
+        var xhr= new XMLHttpRequest()
+        xhr.open('GET','http://127.0.0.1:4523/mock/593055/posts');
+        xhr.send();
+        xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4){
+            if(xhr.status>=200 && xhr.status<300){
+                this.objs=JSON.parse(xhr.response);
+            }
+        }
         }
     },
     computed:{
