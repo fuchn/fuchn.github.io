@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>论坛</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../css/project2.css">
+    </head>
+    <body>
+        <div id="app">
+            <div  id="topline">
+                <a href="">首页</a>
+                <div>
+                    <div>
+                        <input type="text" name="searchKeyword" v-model="keyWord" @blur="temp=false" @focus="temp=true">
+                        <button >搜索</button>
+                    </div>
+                    <div>
+                        <ul>
+                            <li v-for="(item,index) in filterarray" v-show="temp">
+                            {{item.PostContent}}
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div id="main">
+                   <button @click="order(true)">按时间最早</button>
+                   <button @click="order(false)">按时间最晚</button>
+                <div>
+                    <span>主题:{{objs.PostTitle}}</span>
+                    <span>帖子总数:{{objs.PostTotal}}</span>
+                    <span>点赞数:{{objs.Upvote}}</span>
+                    <span>帖主:{{objs.PostOwner}}</span>
+                    <span>发帖日期:{{objs.Date}}</span>
+                </div>
+                <ul>
+                    <li class="post" v-for="(item1,index) in objs.PostNodes">
+                        <div id="postcontent">
+                            <div class="flex1"><a href="">{{item1.PostContent}}</a> <span>{{item1.PostUpvote}}</span></div>
+                            <span>发帖用户:{{item1.UserID}}</span>
+                            <span>{{item1.PostDate}}</span>
+                            <div >
+                                <ul v-show="classname">
+                                    <li v-for="(item2,index) in item1.Comments"><div class="flex2">
+                                        <div>评论用户{{item2.UserID}}</div>
+                                        <div class="flex1">
+                                            <span>{{item2.CommentContent}}</span>
+                                            <div><span>{{item2.CommentUpvote}}</span>
+                                                <span>{{item2.CommentDate}}</span></div>
+                                        </div>
+
+                                    </div></li>
+                                </ul>
+                            </div>
+
+                            <button @click="fold">点击展示或隐藏评论</button>
+                        </li>
+                        </div>
+                </ul>
+            </div>
+            <div id="pages"></div>
+        </div>
+    </body>
+    <script src="../js/vue.js"></script>
+    <script src="../js/project2.js"></script>
+</html>
