@@ -37,9 +37,11 @@ a{
 .flex1{
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
 }
 .flex2{
     display: flex;
     flex-direction: column;
+}
+.border{
+    border: 1px solid black;
 }
